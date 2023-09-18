@@ -27,7 +27,6 @@ class ProductDetailViewController: UIViewController {
         }
     }
     
-    // Configure the UI elements with product data
     func configure(with product: Product) {
         titleLabel.text = product.title
         descriptionLabel.text = product.description
@@ -41,7 +40,7 @@ class ProductDetailViewController: UIViewController {
     }
 }
    /* @IBAction func addToCartButtonTapped(_ sender: UIButton) {
-        // You can implement cart-related logic here
+        // implement cart-related logic here
         // For example, add the selected product to a shopping cart
         if let product = product {
             delegate?.didSelectProduct(product)
