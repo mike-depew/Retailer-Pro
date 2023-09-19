@@ -16,8 +16,8 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <tableView clipsSubviews="YES" contentMode="scaleToFill" misplaced="YES" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="flA-3Y-aGn">
-                                <rect key="frame" x="0.0" y="208" width="414" height="561"/>
+                            <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="flA-3Y-aGn">
+                                <rect key="frame" x="0.0" y="208" width="414" height="570"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="10" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="160" id="QsX-9y-lra" customClass="ProductTableViewCell" customModule="RetailerPro" customModuleProvider="target">
@@ -108,22 +108,38 @@
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
+                            <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c9F-OB-tWU">
+                                <rect key="frame" x="12" y="790" width="390" height="32"/>
+                                <segments>
+                                    <segment title="Men's"/>
+                                    <segment title="Women's"/>
+                                    <segment title="Electronics"/>
+                                    <segment title="Jewelry"/>
+                                </segments>
+                                <connections>
+                                    <action selector="segmentValueChanged:" destination="BYZ-38-t0r" eventType="valueChanged" id="HcA-ZA-Xhz"/>
+                                </connections>
+                            </segmentedControl>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
-                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="flA-3Y-aGn" secondAttribute="bottom" constant="44" id="3e2-lI-P7E"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="bottom" secondItem="flA-3Y-aGn" secondAttribute="bottom" constant="84" id="3e2-lI-P7E"/>
                             <constraint firstItem="flA-3Y-aGn" firstAttribute="trailing" secondItem="6Tk-OE-BBY" secondAttribute="trailing" id="8k1-Ml-LJP"/>
                             <constraint firstItem="a91-O9-kft" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="14" id="T6C-i4-kgg"/>
                             <constraint firstItem="k3I-Lt-WvB" firstAttribute="centerX" secondItem="8bC-Xf-vdC" secondAttribute="centerX" id="WhA-HN-sEd"/>
+                            <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c9F-OB-tWU" secondAttribute="trailing" constant="12" id="Xp2-n2-7VO"/>
                             <constraint firstItem="flA-3Y-aGn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gaf-HX-EKb"/>
                             <constraint firstItem="k3I-Lt-WvB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="i0B-tL-Ny4"/>
+                            <constraint firstItem="c9F-OB-tWU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="o15-FA-rVT"/>
                             <constraint firstItem="flA-3Y-aGn" firstAttribute="top" secondItem="a91-O9-kft" secondAttribute="bottom" constant="6" id="oe5-Ry-OSy"/>
                             <constraint firstItem="flA-3Y-aGn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="rv8-Hn-WqL"/>
+                            <constraint firstItem="c9F-OB-tWU" firstAttribute="top" secondItem="flA-3Y-aGn" secondAttribute="bottom" constant="12" id="wHe-4h-dQ1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1ou-Ys-uOb"/>
                     <connections>
+                        <outlet property="segmentedControl" destination="c9F-OB-tWU" id="AtH-Q5-3yB"/>
                         <outlet property="tableView" destination="flA-3Y-aGn" id="smg-0k-8pm"/>
                     </connections>
                 </viewController>

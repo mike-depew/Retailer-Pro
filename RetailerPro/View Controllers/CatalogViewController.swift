@@ -8,11 +8,28 @@ import AlamofireImage
 class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
     @IBOutlet weak var tableView: UITableView!
+    @IBOutlet weak var segmentedControl: UISegmentedControl!
     
-    var products: [Product] = [] // Array to store fetched products
+    var products: [Product] = []
+    var selectedCategory: String?
+    var filteredProducts: [Product] = []
+    
+    @IBAction func segmentValueChanged(_ sender: UISegmentedControl) {
+           filterProductsByCategory(index: sender.selectedSegmentIndex)
+       }
     
     override func viewDidLoad() {
         super.viewDidLoad()
+        
+        
+       segmentedControl.removeAllSegments()
+        segmentedControl.insertSegment(withTitle: "Men's", at: 0, animated: false)
+        segmentedControl.insertSegment(withTitle: "Women's", at: 1, animated: false)
+        segmentedControl.insertSegment(withTitle: "Electronics", at: 2, animated: false)
+        segmentedControl.insertSegment(withTitle: "Jewelry", at: 3, animated: false)
+        
+        
+        segmentedControl.selectedSegmentIndex = 0
         
       //  tableView.estimatedRowHeight = 180
             
@@ -34,6 +51,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
             switch response.result {
             case .success(let products):
                 self.products = products
+                self.filteredProducts = products // Initialize filteredProducts with all products
                 DispatchQueue.main.async {
                     self.tableView.reloadData()
                 }
@@ -44,11 +62,27 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         }
     }
     
+    func filterProductsByCategory(index: Int) {
+        let categoryNames = ["men's clothing", "women's clothing", "electronics", "jewelery"]
+        let selectedCategory = categoryNames[index]
+
+        // Filter the products based on the selected category
+        if selectedCategory.lowercased() == "all" {
+            filteredProducts = products // Display all products
+        } else {
+            filteredProducts = products.filter { $0.category == selectedCategory }
+        }
+        
+        // Reload the table view with filtered data
+        tableView.reloadData()
+    }
+
+    
     
     // MARK: - Table View Data Source
     
     func tableView(_ tableView: UITableView, numberOfRowsInSection section: Int) -> Int {
-        return products.count
+        return filteredProducts.count
     }
     
     func tableView(_ tableView: UITableView, heightForRowAt indexPath: IndexPath) -> CGFloat {
@@ -57,8 +91,9 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     func tableView(_ tableView: UITableView, cellForRowAt indexPath: IndexPath) -> UITableViewCell {
         let cell = tableView.dequeueReusableCell(withIdentifier: "ProductCell", for: indexPath) as! ProductTableViewCell
-        let product = products[indexPath.row]
+        let product = filteredProducts[indexPath.row]
         cell.configure(with: product)
+        
     //    cell.textLabel?.text = product.title
        // cell.detailTextLabel?.text = "\(product.price) USD"
         // Configure cell as needed
@@ -71,6 +106,7 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
         let selectedProduct = products[indexPath.row]
         showProductDetail(for: selectedProduct)
     }
+    
 
     // Add the showProductDetail method to your CatalogViewController
     func showProductDetail(for product: Product) {
