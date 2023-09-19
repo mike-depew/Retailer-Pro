@@ -17,7 +17,7 @@
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
                             <tableView clipsSubviews="YES" contentMode="scaleToFill" alwaysBounceVertical="YES" dataMode="prototypes" style="plain" separatorStyle="default" rowHeight="-1" estimatedRowHeight="-1" sectionHeaderHeight="-1" estimatedSectionHeaderHeight="-1" sectionFooterHeight="-1" estimatedSectionFooterHeight="-1" translatesAutoresizingMaskIntoConstraints="NO" id="flA-3Y-aGn">
-                                <rect key="frame" x="0.0" y="208" width="414" height="570"/>
+                                <rect key="frame" x="0.0" y="248" width="414" height="530"/>
                                 <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                                 <prototypes>
                                     <tableViewCell clipsSubviews="YES" contentMode="scaleToFill" preservesSuperviewLayoutMargins="YES" selectionStyle="default" indentationLevel="10" indentationWidth="10" reuseIdentifier="ProductCell" rowHeight="160" id="QsX-9y-lra" customClass="ProductTableViewCell" customModule="RetailerPro" customModuleProvider="target">
@@ -103,13 +103,13 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Today's Deals" lineBreakMode="tailTruncation" baselineAdjustment="alignBaselines" adjustsFontSizeToFit="NO" translatesAutoresizingMaskIntoConstraints="NO" id="a91-O9-kft">
-                                <rect key="frame" x="14" y="181.5" width="108.5" height="20.5"/>
+                                <rect key="frame" x="14" y="178.5" width="108.5" height="20.5"/>
                                 <fontDescription key="fontDescription" type="system" weight="medium" pointSize="17"/>
                                 <nil key="textColor"/>
                                 <nil key="highlightedColor"/>
                             </label>
                             <segmentedControl opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="left" contentVerticalAlignment="top" segmentControlStyle="plain" selectedSegmentIndex="0" translatesAutoresizingMaskIntoConstraints="NO" id="c9F-OB-tWU">
-                                <rect key="frame" x="12" y="790" width="390" height="32"/>
+                                <rect key="frame" x="12" y="207" width="390" height="32"/>
                                 <segments>
                                     <segment title="Men's"/>
                                     <segment title="Women's"/>
@@ -131,10 +131,10 @@
                             <constraint firstItem="6Tk-OE-BBY" firstAttribute="trailing" secondItem="c9F-OB-tWU" secondAttribute="trailing" constant="12" id="Xp2-n2-7VO"/>
                             <constraint firstItem="flA-3Y-aGn" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" id="gaf-HX-EKb"/>
                             <constraint firstItem="k3I-Lt-WvB" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="32" id="i0B-tL-Ny4"/>
+                            <constraint firstItem="c9F-OB-tWU" firstAttribute="top" secondItem="a91-O9-kft" secondAttribute="bottom" constant="8" id="mUR-3K-8bI"/>
                             <constraint firstItem="c9F-OB-tWU" firstAttribute="leading" secondItem="6Tk-OE-BBY" secondAttribute="leading" constant="12" id="o15-FA-rVT"/>
-                            <constraint firstItem="flA-3Y-aGn" firstAttribute="top" secondItem="a91-O9-kft" secondAttribute="bottom" constant="6" id="oe5-Ry-OSy"/>
-                            <constraint firstItem="flA-3Y-aGn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="120" id="rv8-Hn-WqL"/>
-                            <constraint firstItem="c9F-OB-tWU" firstAttribute="top" secondItem="flA-3Y-aGn" secondAttribute="bottom" constant="12" id="wHe-4h-dQ1"/>
+                            <constraint firstItem="flA-3Y-aGn" firstAttribute="top" secondItem="6Tk-OE-BBY" secondAttribute="top" constant="160" id="rv8-Hn-WqL"/>
+                            <constraint firstItem="flA-3Y-aGn" firstAttribute="top" secondItem="c9F-OB-tWU" secondAttribute="bottom" constant="10" id="v22-yV-SQ1"/>
                         </constraints>
                     </view>
                     <navigationItem key="navigationItem" id="1ou-Ys-uOb"/>
@@ -177,14 +177,14 @@
                                 <nil key="highlightedColor"/>
                             </label>
                             <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="81n-IX-XMx">
-                                <rect key="frame" x="87" y="629" width="240" height="34"/>
+                                <rect key="frame" x="87" y="665" width="240" height="38"/>
                                 <constraints>
-                                    <constraint firstAttribute="height" constant="34" id="873-FG-vC2"/>
+                                    <constraint firstAttribute="height" constant="38" id="873-FG-vC2"/>
                                     <constraint firstAttribute="width" constant="240" id="NDS-46-afR"/>
                                 </constraints>
                                 <state key="normal" title="Button"/>
-                                <buttonConfiguration key="configuration" style="tinted" title="Add To Cart" cornerStyle="large">
-                                    <color key="baseForegroundColor" systemColor="systemTealColor"/>
+                                <buttonConfiguration key="configuration" style="filled" title="Add To Cart" cornerStyle="large">
+                                    <color key="baseForegroundColor" white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                                     <color key="baseBackgroundColor" systemColor="systemTealColor"/>
                                 </buttonConfiguration>
                             </button>
@@ -224,7 +224,7 @@
                         <color key="backgroundColor" systemColor="systemBackgroundColor"/>
                         <constraints>
                             <constraint firstItem="VaL-6u-YCA" firstAttribute="bottom" secondItem="Qmo-nk-7HX" secondAttribute="bottom" constant="390" id="3UE-iX-DJY"/>
-                            <constraint firstItem="81n-IX-XMx" firstAttribute="top" secondItem="cC5-Yp-cNC" secondAttribute="bottom" constant="24" id="70t-Vb-uCv"/>
+                            <constraint firstItem="81n-IX-XMx" firstAttribute="top" secondItem="cC5-Yp-cNC" secondAttribute="bottom" constant="60" id="70t-Vb-uCv"/>
                             <constraint firstItem="cC5-Yp-cNC" firstAttribute="leading" secondItem="VaL-6u-YCA" secondAttribute="leading" constant="14" id="AzJ-ka-245"/>
                             <constraint firstItem="1vj-B4-4v3" firstAttribute="top" secondItem="Qmo-nk-7HX" secondAttribute="bottom" constant="22" id="C74-WG-APG"/>
                             <constraint firstItem="Qmo-nk-7HX" firstAttribute="leading" secondItem="VaL-6u-YCA" secondAttribute="leading" constant="32" id="Dwt-d1-juW"/>
