@@ -2,6 +2,8 @@
 //  RetailerPro | Created by Mike Depew
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 protocol ProductDetailDelegate: AnyObject {
     func didSelectProduct(_ product: Product)
@@ -32,13 +34,12 @@ class ProductDetailViewController: UIViewController {
         descriptionLabel.text = product.description
         categoryLabel.text = product.category
         priceLabel.text = "\(product.price) USD"
-        if let imageURL = URL(string: product.image) {
-            if let data = try? Data(contentsOf: imageURL), let image = UIImage(data: data) {
-                productImageView.image = image
-            }
         
+        if let imageURL = URL(string: product.image) {
+            // Use AlamofireImage to fetch and cache the image
+            productImageView.af.setImage(withURL: imageURL)
+        }
     }
-}
    /* @IBAction func addToCartButtonTapped(_ sender: UIButton) {
         // implement cart-related logic here
         // For example, add the selected product to a shopping cart

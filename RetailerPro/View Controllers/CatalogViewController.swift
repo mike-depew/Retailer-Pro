@@ -2,6 +2,8 @@
 //  RetailerPro by Mike Depew
 
 import UIKit
+import Alamofire
+import AlamofireImage
 
 class CatalogViewController: UIViewController, UITableViewDataSource, UITableViewDelegate {
 
@@ -28,24 +30,20 @@ class CatalogViewController: UIViewController, UITableViewDataSource, UITableVie
     
     // Function to fetch products from the API
     func fetchProducts() {
-        guard let url = URL(string: "https://fakestoreapi.com/products") else {
-            return
-        }
-        
-        URLSession.shared.dataTask(with: url) { data, response, error in
-            if let data = data {
-                do {
-                    let products = try JSONDecoder().decode([Product].self, from: data)
-                    self.products = products
-                    DispatchQueue.main.async {
-                        self.tableView.reloadData()
-                    }
-                } catch {
-                    print("Error decoding JSON: \(error)")
+        AF.request("https://fakestoreapi.com/products").responseDecodable(of: [Product].self) { response in
+            switch response.result {
+            case .success(let products):
+                self.products = products
+                DispatchQueue.main.async {
+                    self.tableView.reloadData()
                 }
+
+            case .failure(let error):
+                print("Error fetching data: \(error)")
             }
-        }.resume()
+        }
     }
+    
     
     // MARK: - Table View Data Source
     

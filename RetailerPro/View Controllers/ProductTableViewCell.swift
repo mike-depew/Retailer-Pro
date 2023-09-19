@@ -2,6 +2,7 @@
 //  RetailerPro by Mike Depew
 
 import UIKit
+import AlamofireImage
 
 
 class ProductTableViewCell: UITableViewCell {
@@ -16,11 +17,9 @@ class ProductTableViewCell: UITableViewCell {
         priceLabel.text = "\(product.price) USD"
         categoryLabel.text = product.category
 
-        // Set the image directly, rather than using AlamofireImage
+        // Use AlamofireImage to fetch and cache the image
         if let imageURL = URL(string: product.image) {
-            if let data = try? Data(contentsOf: imageURL), let image = UIImage(data: data) {
-                productImageView.image = image
-            }
+            productImageView.af.setImage(withURL: imageURL)
         }
     }
 }
