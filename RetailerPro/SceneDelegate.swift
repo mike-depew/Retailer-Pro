@@ -1,9 +1,5 @@
-//
 //  SceneDelegate.swift
-//  RetailerPro
-//
-//  Created by Mike Depew on 9/16/23.
-//
+//  RetailerPro | by Mike Depew
 
 import UIKit
 

@@ -1,8 +1,5 @@
-//
 //  Product.swift
-//  RetailerPro
-//
-//  Created by Mike Depew.
+//  RetailerPro | by Mike Depew
 //
 
 import Foundation

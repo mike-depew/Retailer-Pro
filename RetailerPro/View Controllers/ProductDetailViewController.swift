@@ -8,7 +8,6 @@ import AlamofireImage
 protocol ProductDetailDelegate: AnyObject {
     func didSelectProduct(_ product: Product)
 }
-
 class ProductDetailViewController: UIViewController {
     
     @IBOutlet weak var titleLabel: UILabel!
@@ -23,12 +22,10 @@ class ProductDetailViewController: UIViewController {
     override func viewDidLoad() {
         super.viewDidLoad()
         
-        // Check if a product is set
         if let product = product {
             configure(with: product)
         }
     }
-    
     func configure(with product: Product) {
         titleLabel.text = product.title
         descriptionLabel.text = product.description
@@ -36,7 +33,6 @@ class ProductDetailViewController: UIViewController {
         priceLabel.text = "\(product.price) USD"
         
         if let imageURL = URL(string: product.image) {
-            // Use AlamofireImage to fetch and cache the image
             productImageView.af.setImage(withURL: imageURL)
         }
     }
@@ -47,5 +43,4 @@ class ProductDetailViewController: UIViewController {
             delegate?.didSelectProduct(product)
         }
     }*/
-
 }
